@@ -682,7 +682,8 @@ export default function CandidateTable({ clientName, jobTitle }: CandidateTableP
           maxHeight: '600px',
           overflowY: 'auto',
           overflowX: 'auto',
-          position: 'relative'
+          position: 'relative',
+          minWidth: '100%'
         }} 
         className="table-scrollbar">
           <style jsx>{`

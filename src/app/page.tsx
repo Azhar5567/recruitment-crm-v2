@@ -138,21 +138,24 @@ export default function HomePage() {
       
       {/* Header */}
       <header style={{
-        padding: '2rem',
+        padding: '1rem 2rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         position: 'relative',
-        zIndex: 10
+        zIndex: 10,
+        flexWrap: 'wrap',
+        gap: '1rem'
       }}>
         <div style={{
           display: 'flex',
           alignItems: 'center',
           gap: '0.75rem',
           color: 'white',
-          fontSize: '1.75rem',
+          fontSize: 'clamp(1.25rem, 4vw, 1.75rem)',
           fontWeight: '700',
-          letterSpacing: '-0.025em'
+          letterSpacing: '-0.025em',
+          flexWrap: 'wrap'
         }}>
           <div style={{
             width: '44px',
@@ -167,20 +170,6 @@ export default function HomePage() {
             <Users size={26} />
           </div>
           <span style={{ letterSpacing: '-0.02em' }}>Omperra</span>
-          <button 
-            onClick={() => alert('Test button works!')}
-            style={{
-              background: 'red',
-              color: 'white',
-              padding: '5px 10px',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              fontSize: '12px'
-            }}
-          >
-            TEST
-          </button>
         </div>
         
         {/* Sign In Button */}
@@ -224,14 +213,16 @@ export default function HomePage() {
       {/* Main Content */}
       <main style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '4rem',
-        padding: '2rem 4rem',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '2rem',
+        padding: '1rem 2rem',
         alignItems: 'flex-start',
         minHeight: 'calc(100vh - 120px)',
         position: 'relative',
         zIndex: 10,
-        paddingTop: '1rem'
+        paddingTop: '1rem',
+        maxWidth: '1200px',
+        margin: '0 auto'
       }}>
         
         {/* Left Side - Hero Content */}
@@ -253,7 +244,7 @@ export default function HomePage() {
           </div>
 
           <h1 style={{
-            fontSize: '4rem',
+            fontSize: 'clamp(2.5rem, 8vw, 4rem)',
             fontWeight: '800',
             lineHeight: '1.1',
             marginBottom: '1.75rem',
@@ -265,7 +256,7 @@ export default function HomePage() {
           </h1>
 
           <p style={{
-            fontSize: '1.25rem',
+            fontSize: 'clamp(1rem, 4vw, 1.25rem)',
             color: 'rgba(255, 255, 255, 0.9)',
             marginBottom: '2.5rem',
             lineHeight: '1.7',
@@ -279,8 +270,8 @@ export default function HomePage() {
           {/* Features Grid */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '1.25rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1rem',
             marginBottom: '2rem'
           }}>
             {features.map((feature, index) => (
@@ -315,7 +306,7 @@ export default function HomePage() {
             background: 'rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(25px)',
             borderRadius: '28px',
-            padding: '2.5rem',
+            padding: 'clamp(1.5rem, 5vw, 2.5rem)',
             border: '1px solid rgba(255, 255, 255, 0.15)',
             maxWidth: '480px',
             width: '100%',
@@ -323,7 +314,7 @@ export default function HomePage() {
           }}>
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
               <h2 style={{
-                fontSize: '2rem',
+                fontSize: 'clamp(1.5rem, 5vw, 2rem)',
                 fontWeight: '700',
                 color: 'white',
                 marginBottom: '0.75rem',

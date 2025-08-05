@@ -89,8 +89,9 @@ export default function DashboardPage() {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '20px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '20px',
+          padding: '0 1rem'
         }}>
           <div style={{
             background: 'rgba(255, 255, 255, 0.1)',
@@ -253,9 +254,10 @@ export default function DashboardPage() {
       {/* Key Metrics */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
         gap: '20px',
-        marginBottom: '24px'
+        marginBottom: '24px',
+        padding: '0 1rem'
       }}>
         {stats.map((stat) => (
           <div key={stat.title} style={{
@@ -324,7 +326,7 @@ export default function DashboardPage() {
         }}>
           Quick Actions
         </h2>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
           {quickActions.map((action) => (
             <Link key={action.name} href={action.href}>
               <button
