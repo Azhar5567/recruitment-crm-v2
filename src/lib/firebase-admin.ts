@@ -7,8 +7,6 @@ let adminDb: FirebaseFirestore.Firestore
 try {
   // Check if Firebase Admin is already initialized
   if (getApps().length === 0) {
-    console.log('Initializing Firebase Admin with project ID: recruitment-crm-3dd5d')
-    
     // Check if required environment variables are present
     const requiredEnvVars = [
       'FIREBASE_PRIVATE_KEY_ID',
@@ -39,18 +37,16 @@ try {
       universe_domain: "googleapis.com"
     }
     
-    console.log('Service account loaded successfully')
-    
     initializeApp({
       credential: cert(serviceAccount as any),
       projectId: "recruitment-crm-3dd5d",
     })
-    
-    console.log('Firebase Admin initialized with service account')
   }
 
   adminDb = getFirestore()
-  console.log('✅ Firebase Admin initialized successfully')
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('✅ Firebase Admin initialized successfully')
+  }
 } catch (error) {
   console.error('❌ Failed to initialize Firebase Admin:', error)
   // Create a fallback mock database for development
