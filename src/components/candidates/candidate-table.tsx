@@ -194,9 +194,9 @@ export default function CandidateTable({ clientName, jobTitle }: CandidateTableP
             candidateName: row.candidateName,
             email: row.email,
             status: row.status,
-        clientName,
-        jobTitle,
-      })
+            clientName,
+            jobTitle,
+          })
       
           // Update stable empty rows so the saved candidate stays in place
             setStableEmptyRows(prev => prev.map(r => r.id === row.id ? { ...r, ...savedCandidate, isTemp: false } : r))
