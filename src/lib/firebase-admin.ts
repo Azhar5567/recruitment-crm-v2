@@ -7,12 +7,27 @@ let adminDb: FirebaseFirestore.Firestore
 try {
   // Check if Firebase Admin is already initialized
   if (getApps().length === 0) {
-    console.log('Initializing Firebase Admin with project ID:', process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID)
+    console.log('Initializing Firebase Admin with project ID: recruitment-crm-3dd5d')
+    
+    // Check if required environment variables are present
+    const requiredEnvVars = [
+      'FIREBASE_PRIVATE_KEY_ID',
+      'FIREBASE_PRIVATE_KEY',
+      'FIREBASE_CLIENT_EMAIL',
+      'FIREBASE_CLIENT_ID',
+      'FIREBASE_CLIENT_CERT_URL'
+    ]
+    
+    const missingVars = requiredEnvVars.filter(varName => !process.env[varName])
+    if (missingVars.length > 0) {
+      console.error('Missing required environment variables:', missingVars)
+      throw new Error(`Missing environment variables: ${missingVars.join(', ')}`)
+    }
     
     // Use environment variables for service account credentials
     const serviceAccount = {
       type: "service_account",
-      project_id: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+      project_id: "recruitment-crm-3dd5d",
       private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
       private_key: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
       client_email: process.env.FIREBASE_CLIENT_EMAIL,
